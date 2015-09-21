@@ -1,0 +1,9 @@
+<div class="search-form-container">
+  <%= form_tag do %>
+  <% groups_array = [['Something Random', 'Something Random']] %>
+  <% @groups.each do |group| %>
+  <% groups_array << [group.name, group.name] %>
+  <% end %>
+  Give me a list of <%= select_tag(:name, options_for_select(groups_array)) %>
+  <% end %>
+</div>
