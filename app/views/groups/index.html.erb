@@ -1,5 +1,5 @@
 <h1>Groups of Stuff</h1>
-<div class="search-form-container">
+<div class="menu-form-container">
   <%= form_tag(action: 'menu') do %>
     <% groups_array = @groups.inject([['something random', 'random']]) do |array, group| %>
       <% array << ["#{group.name} (#{group.items.count})", group.id] %>

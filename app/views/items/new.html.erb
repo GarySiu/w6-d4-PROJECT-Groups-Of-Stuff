@@ -1,0 +1,7 @@
+<%= form_for [@group, @item] do |f| %>
+<%= f.label(:author_id, 'Author: ') %>
+<% authors_array = @authors.map { |author| [author.name, author.id]} %>
+<%= f.select(:author_id, options_for_select(authors_array, @group.author_id)) %><br><br>
+<%= f.text_area(:name, :placeholder => 'Add items here! 1 item per line', :rows => 30, :cols => 40) %><br>
+<%= f.submit 'Create item(s)' %>
+<% end %>

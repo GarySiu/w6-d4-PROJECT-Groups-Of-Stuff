@@ -6,5 +6,5 @@
   <% end %>
 </textarea>
 <% else %>
-No items in this group! <%= link_to('Add some', new_item_path) %>.
+No items in this group! <%= link_to('Add some', new_group_item_path(@group.id)) %>.
 <% end %>

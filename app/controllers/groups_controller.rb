@@ -10,7 +10,7 @@ class GroupsController < ApplicationController
 
   def menu
     if params[:id] == 'random'
-      params[:id] = Group.order("RANDOM()").first.id
+      params[:id] = Group.order('RANDOM()').first.id
     end
       redirect_to "/groups/#{params[:id]}"
   end
@@ -22,13 +22,14 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
+    @authors = Author.all
   end
 
   def create
     group = Group.new
     group.update(group_params)
     if group.save
-      redirect_to "/groups/"
+      redirect_to "/groups/#{group.id}"
     else
       render :new
     end
@@ -37,6 +38,6 @@ class GroupsController < ApplicationController
   private
 
   def group_params
-      params.require(:group).permit(:name)
+      params.require(:group).permit(:name, :author_id)
   end
 end
