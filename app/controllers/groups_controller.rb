@@ -43,12 +43,17 @@ class GroupsController < ApplicationController
 
   def update
     group = Group.find(params[:id])
+    # In an ideal world we'd compare every permutation of group.items vs the contents of the text box
+    # This is not that world. Delete them all, start again.
     Item.where(group_id: params[:id]).destroy_all
+
+    # Now we rebuild!
     items = params[:item_names].lines.map(&:chomp)
     items.each do |item|
       db = Item.new
       db.update(name: item, group_id: params[:id], author_id: params[:group][:author_id])
       db.save
+      # We should catch errors here but I'm out of time.
     end
     if group.update(group_params)
       redirect_to "/groups/#{group.id}"
