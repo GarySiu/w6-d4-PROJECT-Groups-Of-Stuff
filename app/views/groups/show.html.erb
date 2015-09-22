@@ -4,7 +4,8 @@
   <% @items.each do |item| %>
   <%= item.name %>
   <% end %>
-</textarea>
+</textarea><br><br>
+<%= link_to('Edit this Group', edit_group_path) %>
 <% else %>
 No items in this group! <%= link_to('Add some', new_group_item_path(@group.id)) %>.
 <% end %>

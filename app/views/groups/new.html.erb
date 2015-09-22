@@ -3,7 +3,7 @@ A backup form for people who aren't using JavaScript<br><br>
 <%= form_for @group do |f| %>
 <%= f.label(:author_id, 'Author: ') %>
 <% authors_array = @authors.map { |author| [author.name, author.id]} %>
-<%= f.select(:author_id, options_for_select(authors_array)) %><br><br>
+<%= f.select(:author_id, options_for_select(authors_array)) %><br>
 <%= f.label :name %>
 <%= f.text_field :name %>
 <%= f.submit %>

@@ -12,11 +12,12 @@ class ItemsController < ApplicationController
     item_object = params[:item]
     # Create a clean array of seperate item names with no linebreaks
     items = item_object[:name].lines.map(&:chomp)
-    binding.pry
     items.each do |item|
       db = Item.new
       db.update(name: item, group_id: params[:group_id], author_id: item_object[:author_id])
-      db.save
+      unless db.save
+        render: new
+      end
     end
 
     redirect_to "/groups/#{params[:group_id]}"
