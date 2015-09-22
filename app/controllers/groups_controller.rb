@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
 
   def home
-    redirect_to '/groups/'
+    redirect_to groups_path
   end
 
   def index
@@ -60,6 +60,11 @@ class GroupsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    Group.destroy(params[:id])
+    redirect_to groups_path
   end
 
   private
