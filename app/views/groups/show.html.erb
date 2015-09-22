@@ -1,0 +1,6 @@
+<h1><%= @group.name %></h1>
+<textarea rows="<%= @items.count %>" cols="<%= @items.max_by(&:name).name.length + 20 %>">
+  <% @items.each do |item| %>
+  <%= item.name %>
+  <% end %>
+</textarea>
