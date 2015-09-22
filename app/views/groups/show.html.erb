@@ -1,11 +1,10 @@
 <h1><%= @group.name %></h1>
 <% if @items.first %>
 <%= link_to('Edit this Group', edit_group_path) %> <%= link_to('Delete this Group', group_path, method: :delete, data: { confirm: "Are you sure?" }) %><br><br>
-<textarea rows="<%= @items.count %>" cols="<%= @items.map(&:name).max_by(&:length).length %>">
-  <% @items.each do |item| %>
-  <%= item.name %>
-  <% end %>
-</textarea>
+<% item_string = @items.inject('') { |final, item| final + item.name + "\n"} %>
+<% item_rows = @items.count %>
+<% item_cols = @items.map(&:name).max_by(&:length).length %>
+<%= text_area_tag(:item_names, item_string, rows: item_rows, cols: item_cols) %>
 <% else %>
 No items in this group! <%= link_to('Add some', new_group_item_path(@group.id)) %>.
 <% end %>
