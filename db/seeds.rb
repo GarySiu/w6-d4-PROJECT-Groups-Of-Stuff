@@ -374,7 +374,7 @@ a5.items.create(name: "The Executioner’s Song", group_id: 12, views: 0)
 g1 = a1.groups.create(name: 'Days of the Week')
 g2 = a1.groups.create(name: 'Months')
 g3 = a2.groups.create(name: 'Wine bottle sizes')
-g4 = a2.groups.create(name: 'Royal Peerage')
+g4 = a2.groups.create(name: 'Royal Peerages')
 g5 = a3.groups.create(name: 'Signs of the Zodiac')
 
 g6 = a3.groups.create(name: 'Poets Laureate')
@@ -389,7 +389,7 @@ g12 = a5.groups.create(name: 'Pulitzer Prize Winning Novels')
 # tags
 
 a1.tags.create(name: 'Dates')
-a1.tags.create(name: 'Food')
+a1.tags.create(name: 'Foods')
 a1.tags.create(name: 'Drink')
 a3.tags.create(name: 'People')
 a4.tags.create(name: 'America')
