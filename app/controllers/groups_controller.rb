@@ -1,10 +1,18 @@
 class GroupsController < ApplicationController
+
+  def home
+    redirect_to "/groups/"
+  end
+
   def index
     @groups = Group.all
   end
 
   def menu
-    redirect_to "/groups/#{params[:id]}"
+    if params[:id] == 'random'
+      params[:id] = Group.order("RANDOM()").first.id
+    end
+      redirect_to "/groups/#{params[:id]}"
   end
 
   def show

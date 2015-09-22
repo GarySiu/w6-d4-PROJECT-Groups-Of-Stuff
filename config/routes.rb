@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  root 'groups#index'
-  post '/' => 'groups#menu'
+  root 'groups#home'
+  post '/groups/' => 'groups#menu'
   resources :groups
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
