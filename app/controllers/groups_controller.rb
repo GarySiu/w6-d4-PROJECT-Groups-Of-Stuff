@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
 
   def home
-    redirect_to "/groups/"
+    redirect_to '/groups/'
   end
 
   def index
@@ -18,5 +18,25 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
     @items = Group.find(params[:id]).items.all
+  end
+
+  def new
+    @group = Group.new
+  end
+
+  def create
+    group = Group.new
+    group.update(group_params)
+    if group.save
+      redirect_to "/groups/"
+    else
+      render :new
+    end
+  end
+
+  private
+
+  def group_params
+      params.require(:group).permit(:name)
   end
 end

@@ -1,11 +1,12 @@
 <h1>Groups of Stuff</h1>
 <div class="search-form-container">
-  <%= form_tag do %>
+  <%= form_tag(action: 'menu') do %>
     <% groups_array = @groups.inject([['something random', 'random']]) do |array, group| %>
       <% array << ["#{group.name} (#{group.items.count})", group.id] %>
     <% end %>
   <div>Give me a list of <%= select_tag(:id, options_for_select(groups_array)) %></div>
   <%= submit_tag("Gimme my stuff!") %>
-  <% end %>
+  <% end %><br> <!-- It's temporary I swear! -->
+<%= link_to('Add a Group', new_group_path, id: 'backup-new') %>
 </div>
 <div id="results"></div>

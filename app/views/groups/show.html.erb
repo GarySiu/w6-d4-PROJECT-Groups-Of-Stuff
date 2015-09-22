@@ -1,6 +1,10 @@
 <h1><%= @group.name %></h1>
-<textarea rows="<%= @items.count %>" cols="<%= @items.max_by(&:name).name.length + 20 %>">
+<% if @items.first %>
+<textarea rows="<%= @items.count %>" cols="<%= @items.map(&:name).max_by(&:length).length %>">
   <% @items.each do |item| %>
   <%= item.name %>
   <% end %>
 </textarea>
+<% else %>
+No items in this group! <%= link_to('Add some', new_item_path) %>.
+<% end %>
