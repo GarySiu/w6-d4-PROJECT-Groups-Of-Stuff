@@ -14,3 +14,7 @@
  *= require_self
  *= require font-awesome
  */
+
+ .button-delete {
+  background: rgb(202, 60, 60);
+}

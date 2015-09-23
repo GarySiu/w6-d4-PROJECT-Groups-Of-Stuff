@@ -1,13 +1,12 @@
-<h1>Groups of Stuff</h1>
-<div class="menu-form-container">
-  <%= form_tag(groups_menu_path, class: 'pure-form') do %>
+<h1 class="ta-c splash">Groups of Stuff</h1>
+  <%= form_tag(groups_menu_path, class: 'pure-form ') do %>
     <% groups_array = @groups.inject([['something random', 'random']]) do |array, group| %>
       <% array << ["#{group.name} (#{group.items.count})", group.id] %>
     <% end %>
-  Give me a list of <%= select_tag(:id, options_for_select(groups_array)) %>
-  <button class="pure-button-primary pure-button">
-  <i class="fa fa-arrow-circle-right"></i> Give me a list!</button>
-  <% end %><br> <!-- It's temporary I swear! -->
-<%= link_to('Add a Group', new_group_path, id: 'backup-new') %>
+    Give me a list of <%= select_tag(:id, options_for_select(groups_array)) %>
+    <button class="pure-button-primary pure-button">
+    <i class="fa fa-arrow-circle-right"></i> Give me a list!</button>
+  <% end %>
+<div class="menu-box">
+<%= link_to('Add a Group', new_group_path, class: 'pure-button' ) %>
 </div>
-<div id="results"></div>

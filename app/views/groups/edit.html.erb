@@ -1,14 +1,15 @@
 <h1><%= @group.name %></h1>
-A backup form for people who aren't using JavaScript<br><br>
-<%= form_for @group do |f| %>
+<%= form_for @group, :html => {:class => 'pure-form pure-form-stacked'} do |f| %>
 <%= f.label(:author_id, 'Author: ') %>
 <% authors_array = @authors.map { |author| [author.name, author.id] } %>
-<%= f.select(:author_id, options_for_select(authors_array, @group.author_id)) %><br>
+<%= f.select(:author_id, options_for_select(authors_array, @group.author_id)) %>
 <%= f.label :name, 'Group: ' %>
-<%= f.text_field :name, size: @group.name.length %><br><br>
+<%= f.text_field :name, size: @group.name.length %>
 <% item_string = @items.inject('') { |final, item| final + item.name + "\n"} %>
 <% item_rows = @items.count %>
 <% item_cols = @items.map(&:name).max_by(&:length).length %>
-<%= text_area_tag(:item_names, item_string, rows: item_rows, cols: item_cols) %><br>
-<%= f.submit %>
+<%= text_area_tag(:item_names, item_string, rows: item_rows, cols: item_cols) %>
+<div class="menu-box">
+  <button class="pure-button-primary pure-button">Update Group</button>
+</div>
 <% end %>

@@ -15,9 +15,7 @@ class ItemsController < ApplicationController
     items.each do |item|
       db = Item.new
       db.update(name: item, group_id: params[:group_id], author_id: item_object[:author_id])
-      unless db.save
-        render: new
-      end
+      db.save
     end
 
     redirect_to "/groups/#{params[:group_id]}"

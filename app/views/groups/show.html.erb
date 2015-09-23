@@ -1,10 +1,12 @@
 <h1><%= @group.name %></h1>
 <% if @items.first %>
-<%= link_to('Edit this Group', edit_group_path) %> <%= link_to('Delete this Group', group_path, method: :delete, data: { confirm: "Are you sure?" }) %><br><br>
+<div class="menu-box">
+<%= link_to('Edit this Group', edit_group_path, class: 'pure-button-primary pure-button') %> 
+<%= link_to('Delete this Group', group_path, method: :delete, data: { confirm: "Are you sure?" }, class: 'button-delete pure-button') %></div>
 <% item_string = @items.inject('') { |final, item| final + item.name + "\n"} %>
 <% item_rows = @items.count %>
 <% item_cols = @items.map(&:name).max_by(&:length).length %>
 <%= text_area_tag(:item_names, item_string, rows: item_rows, cols: item_cols) %>
 <% else %>
-No items in this group! <%= link_to('Add some', new_group_item_path(@group.id)) %>.
+No items in this group! <%= link_to('Add some', new_group_item_path(@group.id), class: 'pure-button-primary pure-button') %>
 <% end %>
