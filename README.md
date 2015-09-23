@@ -21,6 +21,7 @@ Items and groups are seperately assigned Authors so in future versions you will 
 * The logic is handled with Ruby and the views are templated in ERB files
 * The styling is a combination of hand coding and the Pure CSS framework
 * The Google Web Font 'Roboto Slab' is used for title
+* Font Awesome is used for various icons
 
 #### Problems & Challenges
 
