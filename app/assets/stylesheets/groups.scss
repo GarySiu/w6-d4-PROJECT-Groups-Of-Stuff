@@ -1,12 +1,14 @@
 // Place all the styles related to the Groups controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-body {
+
+.main-container {
   padding: 0 30%;
 }
 
 .splash {
-  padding-top: 30%;
+  padding-top: 25%;
+  margin-top: 1em;
 }
 
 .ta-c {
@@ -15,4 +17,14 @@ body {
 
 .menu-box {
   padding: 1em 0;
+}
+
+.nav-icon {
+  color: #000;
+}
+
+.subheading {
+  font-size: 0.8em;
+  font-style: italic;
+  margin-bottom: 1em;
 }

@@ -1,4 +1,5 @@
 <h1 class="ta-c splash">Groups of Stuff</h1>
+<div class="ta-c subheading">An example, for you!</div>
   <%= form_tag(groups_menu_path, class: 'pure-form ') do %>
     <% groups_array = @groups.inject([['something random', 'random']]) do |array, group| %>
       <% array << ["#{group.name} (#{group.items.count})", group.id] %>
